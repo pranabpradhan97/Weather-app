@@ -8,6 +8,9 @@ const forecast = require('./utils/forecast')
 
 const app=express()  
 
+//port value which is not constant unlike our localhost 
+const port = process.env.PORT || 3000
+
 //define paths for express config
 const publicDirectoryPath= path.join(__dirname, '../public')
 const viewPath= path.join(__dirname, '../templates/views')
@@ -118,7 +121,7 @@ app.get('*',(req, res)=>{
     })
 })
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
     console.log('Server is up on port 3000')
 })            //starts the server on port 3000, 2nd argument is optional function that runs when the server starts
 //server stays up and running until we shut it
